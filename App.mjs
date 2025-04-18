@@ -18,6 +18,27 @@ app.use(express.urlencoded()); // Replaced bodyParser with express
 app.use(hostRouter);
 
 app.use(express.static(path.join(rooPath, "public"))); //css
+
+app.get('/', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>My App</title>
+      <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+      <header>Welcome to My App</header>
+      <div class="container">
+        <!-- Your content here -->
+      </div>
+    </body>
+    </html>
+  `);
+});
+
 app.use((req, res, next) => {
   res.status(404);
   res.sendFile(path.join(rooPath, "views", "404.html"));
