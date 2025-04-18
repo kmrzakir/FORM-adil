@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./views/*.html", // Ensure this matches your HTML file paths
-
-  ],
+  content: ["./src/**/*.{html,js,mjs,ejs}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#1D4ED8",
+        secondary: "#9333EA",
+      },
+    },
   },
   plugins: [],
+};
